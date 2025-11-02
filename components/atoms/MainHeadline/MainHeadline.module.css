@@ -1,0 +1,32 @@
+.mainHeadline {
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  color: var(--text-light, #1F2937);
+  transition: color 0.3s ease;
+}
+
+/* Theme variants */
+.light {
+  --text-primary: var(--text-light, #1F2937);
+}
+
+.dark {
+  --text-primary: var(--text-dark, #F9FAFB); /* Ensures white text in dark mode */
+}
+
+/* Highlighted text */
+.mainHeadline :global(.highlight) {
+  font-weight: 800;
+}
+
+/* Keep responsive, high-contrast, reduced-motion as-is */
+
+@media (prefers-contrast: high) {
+  .mainHeadline :global(.highlight) {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--text-high-contrast, #000);
+    text-shadow: none;
+  }
+}
