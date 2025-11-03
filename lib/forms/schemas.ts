@@ -8,6 +8,7 @@ export const contactSchema = z.object({
   phone: z.string().min(10, "Phone too short"),
   message: z.string().min(10, "Message too short").max(1000),
   serviceSlug: z.string().optional(),
+  pageType: z.string().min(1, "Page type required"),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;

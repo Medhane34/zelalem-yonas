@@ -4,7 +4,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFormSubmission } from "@/lib/forms/useFormSubmission";
-import { Input, Textarea, Checkbox, Select } from "@heroui/react"; // ← FIXED: Unified import
+import { Input, Textarea } from "@heroui/input";
 import { SolidButton } from "@/components/atoms/Button";
 import { contactSchema, type ContactFormData } from "@/lib/forms/schemas";
 
@@ -58,7 +58,7 @@ export const ContactForm = ({ serviceSlug, formId }: ContactFormProps) => {
       )}
       {error && <p className="text-red-500 text-sm">{error}</p>}
       <SolidButton type="submit" isLoading={loading} color="brand" className="w-full">
-        {loading ? "Sending..." : "Schedule Consultation"}
+        {loading ? "Sending..." : "Book Consultation"}
       </SolidButton>
     </form>
   );

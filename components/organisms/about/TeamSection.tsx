@@ -98,4 +98,4 @@ export const TeamSection = () => {
       </div>
     </section>
   );
-};
+};332
