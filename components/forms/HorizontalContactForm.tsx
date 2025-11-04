@@ -10,7 +10,7 @@ interface HorizontalContactFormProps {
   title: string;
   subtext: string;
   buttonText: string;
-  imageSrc: string; // e.g., "/images/home-cta.jpg"
+  imageSrc?: string | null; // e.g., "/images/home-cta.jpg"
   pageType: string; // e.g., "home"
   formId: string; // e.g., "home-cta"
   serviceSlug?: string; // Optional for service pages
@@ -37,13 +37,17 @@ export const HorizontalContactForm = ({
         >
           {/* Left: Image */}
           <div className="relative h-64 md:h-80">
-            <Image
-              src={imageSrc}
-              alt={`${title} - Get in touch`}
-              fill
-              className="object-cover rounded-xl shadow-lg"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+            {imageSrc ? (
+              <Image
+                src={imageSrc}
+                alt={`${title} - Get in touch`}
+                fill
+                className="object-cover rounded-xl shadow-lg"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            ) : (
+              <div className="w-full h-full rounded-xl bg-slate-200 dark:bg-slate-700" />
+            )}
           </div>
 
           {/* Right: Text + Form */}

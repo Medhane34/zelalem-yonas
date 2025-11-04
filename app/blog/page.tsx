@@ -2,55 +2,64 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { Checkbox } from "@heroui/react";
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Checkbox } from '@/components/ui/Checkbox';
 import { getPosts, getPostsByCategory, getCategories } from '@/lib/queries/blog';
 import { PostCard } from '@/components/blog/PostCard';
 import type { Post, Category } from '@/lib/queries/blog';
 
 export default function BlogListPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState('');
   const [posts, setPosts] = useState<Post[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Fetch categories once
+  // Sync URL → state
   useEffect(() => {
-    getCategories().then((cats) => {
-      console.log('Fetched categories:', cats); // Debug—remove after
-      setCategories(cats);
-    }).catch((err) => {
-      console.error('Categories fetch error:', err);
-    });
+    const cat = searchParams.get('category') || '';
+    setActiveCategory(cat);
+  }, [searchParams]);
+
+  // Fetch categories
+  useEffect(() => {
+    getCategories().then(setCategories);
   }, []);
 
-  // Fetch posts on category change
+  // Fetch posts
   useEffect(() => {
-    if (activeCategory) {
-      getPostsByCategory(activeCategory).then((filteredPosts) => {
-        console.log('Filtered posts for', activeCategory, ':', filteredPosts); // Debug—remove after
-        setPosts(filteredPosts);
-      });
-    } else {
-      getPosts(9).then((allPosts) => {
-        console.log('All posts:', allPosts); // Debug—remove after
-        setPosts(allPosts);
-      });
-    }
+    const fetchPosts = async () => {
+      setIsLoading(true);
+      try {
+        const result = activeCategory
+          ? await getPostsByCategory(activeCategory)
+          : await getPosts(9);
+        setPosts(result);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+        setPosts([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPosts();
   }, [activeCategory]);
 
-  const handleCategoryChange = (catSlug: string) => {
-    setActiveCategory(catSlug);
-    if (catSlug) {
-      router.push(`/blog?category=${catSlug}`);
+  const handleCategoryChange = (catSlug: string, checked: boolean) => {
+    if (checked && catSlug) {
+      setActiveCategory(catSlug);
+      router.push(`/blog?category=${catSlug}`, { scroll: false });
     } else {
-      router.push('/blog');
+      setActiveCategory('');
+      router.push('/blog', { scroll: false });
     }
   };
 
   const clearFilter = () => {
     setActiveCategory('');
-    router.push('/blog');
+    router.push('/blog', { scroll: false });
   };
 
   return (
@@ -66,54 +75,59 @@ export default function BlogListPage() {
           </p>
         </div>
 
-        {/* Filter Sidebar */}
+        {/* Filter + Posts */}
         <div className="grid md:grid-cols-4 gap-8 mb-8">
+          {/* Sidebar */}
           <div className="md:col-span-1">
             <h3 className="text-lg font-bold mb-4">Categories</h3>
             <div className="space-y-2">
               <button
                 onClick={clearFilter}
-                className={`p-2 rounded w-full text-left ${
+                className={`p-2 rounded w-full text-left transition-colors ${
                   !activeCategory
-                    ? 'bg-brand-100 text-brand-700'
+                    ? 'bg-brand-100 text-brand-700 font-medium'
                     : 'text-text-light/70 dark:text-text-dark/70 hover:text-brand-600'
                 }`}
               >
                 All Categories
               </button>
-              {categories.length > 0 ? (
-                categories.map((cat: Category) => (
-                  <Checkbox
-                    key={cat._id}
-                    isSelected={activeCategory === cat.slug}
-                    onValueChange={() => handleCategoryChange(cat.slug)}
-                    className="w-full"
-                  >
-                    {cat.title}
-                  </Checkbox>
-                ))
-              ) : (
-                <p className="text-text-light/70 dark:text-text-dark/70">Loading categories...</p>
-              )}
+
+              {categories.map((cat) => (
+                <Checkbox
+                  key={cat._id}
+                  isSelected={activeCategory === cat.slug}
+                  onValueChange={(checked) => handleCategoryChange(cat.slug, checked)}
+                  className="w-full"
+                >
+                  {cat.title}
+                </Checkbox>
+              ))}
             </div>
+
             {activeCategory && (
               <button
                 onClick={clearFilter}
-                className="mt-2 text-sm text-brand-600 hover:underline"
+                className="mt-3 text-sm text-brand-600 hover:underline"
               >
                 Clear filter
               </button>
             )}
           </div>
 
-          {/* Posts Grid */}
-          <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.length > 0 ? (
-              posts.map((post: Post) => (
-                <PostCard key={post._id} post={post} />
-              ))
+          {/* Posts */}
+          <div className="md:col-span-3">
+            {isLoading ? (
+              <div className="text-center py-12">
+                <p className="text-text-light/70 dark:text-text-dark/70">Loading posts...</p>
+              </div>
+            ) : posts.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {posts.map((post) => (
+                  <PostCard key={post._id} post={post} />
+                ))}
+              </div>
             ) : (
-              <div className="col-span-full text-center py-12">
+              <div className="text-center py-12">
                 <p className="text-xl text-text-light/70 dark:text-text-dark/70 mb-4">
                   No posts in this category yet—check back soon.
                 </p>

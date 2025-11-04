@@ -1,32 +1,37 @@
 // components/blog/AuthorBio.tsx
-import Image from 'next/image';
+import Image from "next/image";
+import { urlFor } from "@/lib/image";
+import { PortableTextRenderer } from "@/components/blog/PortableTextRenderer";
 
-interface AuthorBioProps {
-  author: {
-    name: string | null;
-    image: string | null;
-    bio: string | null; // ← FIXED: Optional bio
-  } | null;
-}
+export function AuthorBio({ author }: { author: any }) {
+  const avatarUrl = author?.image?.asset?.url
+    ? urlFor(author.image).width(128).height(128).url()
+    : author?.avatar
+    ? author.avatars
+    : "/fallback-avatar.jpg";
 
-export const AuthorBio = ({ author }: AuthorBioProps) => {
-  if (!author) return null;
-
+  // ← ONLY render <Image> if we have a valid URL
   return (
-    <div className="mb-8 p-4 bg-white dark:bg-slate-800 rounded-lg">
-      <Image
-        src={author.image || '/images/default-avatar.jpg'}
-        alt={author.name || 'Anonymous'}
-        width={80}
-        height={80}
-        className="rounded-full mb-4"
-      />
-      <h3 className="text-lg font-bold text-text-light dark:text-text-dark mb-2">
-        {author.name || 'Anonymous'}
-      </h3>
-      <p className="text-text-light/70 dark:text-text-dark/70 text-sm">
-        {author.bio || 'Legal expert at Zelalem & Yonas Law Office.'}
-      </p>
+    <div className="flex items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
+      {avatarUrl && (
+        <Image
+          src={avatarUrl}
+          alt={author?.name || "Author"}
+          width={64}
+          height={64}
+          className="rounded-full ring-2 ring-brand-200"
+        />
+      )}
+      <div>
+        <p className="font-semibold text-text-light dark:text-text-dark">
+          {author?.name || "Anonymous"}
+        </p>
+        {author?.bio && (
+          <div className="text-sm text-text-light/70 dark:text-text-dark/70 mt-1 prose prose-sm dark:prose-invert">
+            <PortableTextRenderer content={author.bio} />
+          </div>
+        )}
+      </div>
     </div>
   );
-};
+}

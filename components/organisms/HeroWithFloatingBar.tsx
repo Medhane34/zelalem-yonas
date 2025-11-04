@@ -12,7 +12,7 @@ interface ServiceHero {
   tagline: string;
   description: string;
   badges: string[];
-  heroImage: string;
+  heroImage?: string | null;
   contactUrl?: string;
 }
 
@@ -31,14 +31,18 @@ export const HeroWithFloatingBar = ({ hero }: Props) => {
       className="relative h-screen left-1/2 right-1/2 w-screen -mx-[50vw] 22overflow-hidden"
     >
       {/* Hero Background Image */}
-      <Image
-        src={hero.heroImage}
-        alt={`${hero.title} - Legal Services`}
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-      />
+      {hero.heroImage ? (
+        <Image
+          src={hero.heroImage}
+          alt={`${hero.title} - Legal Services`}
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-300 to-slate-500" />
+      )}
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Hero Content */}

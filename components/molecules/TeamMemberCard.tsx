@@ -36,13 +36,17 @@ export const TeamMemberCard = ({ member, index }: TeamMemberCardProps) => {
           transition={{ type: "spring", stiffness: 400, damping: 25 }}
           className="relative z-10"
         >
-          <Image
-            src={member.image}
-            alt={`Portrait of ${member.name}`}
-            width={280}
-            height={280}
-            className="w-48 h-48 mx-auto rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg"
-          />
+          {member.image ? (
+            <Image
+              src={member.image}
+              alt={`Portrait of ${member.name}`}
+              width={280}
+              height={280}
+              className="w-48 h-48 mx-auto rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg"
+            />
+          ) : (
+            <div className="w-48 h-48 mx-auto rounded-full bg-slate-200 dark:bg-slate-700 border-4 border-white dark:border-gray-800 shadow-lg" />
+          )}
         </motion.div>
 
         {/* Floating Name/Title Overlay */}
@@ -86,4 +90,4 @@ export const TeamMemberCard = ({ member, index }: TeamMemberCardProps) => {
       </div>
     </motion.div>
   );
-};3
+};
