@@ -1,0 +1,178 @@
+[
+  {
+  "_type": "teamMember",
+  "name": "Dr. Yonas Mekonnen",
+  "slug": { "_type": "slug", "current": "yonas-mekonnen" },
+  "position": "Senior Partner – Family & Estate Law",
+  "photo": {
+    "_type": "image",
+    "asset": null,
+    "alt": "Dr. Yonas Mekonnen, Senior Partner"
+  },
+  "heroStatement": "I help families protect their legacy and minimize tax burdens through strategic estate planning and compassionate family-law guidance.",
+  "personalStory": "Growing up in a multi-generational household, I saw how poorly drafted wills tore families apart. After earning my LLM in Taxation, I founded our estate-planning practice to ensure every client leaves a clear, tax-efficient roadmap for the next generation. Outside the office, I mentor young lawyers and volunteer with the Addis Ababa Legal Aid Clinic.",
+  "practiceAreas": [
+    { "area": "Estate Planning & Wills", "result": "$42M in assets protected for 180+ families" },
+    { "area": "Divorce & Child Custody", "result": "98% mediated settlements" },
+    { "area": "Probate Litigation", "result": "15 high-value estates resolved" },
+    { "area": "Tax Law for HNWI", "result": "Saved clients $3.8M in estate taxes" }
+  ],
+  "achievements": [
+    "Super Lawyers® – Top 100 (2023–2025)",
+    "Best Lawyers in America® – Estate Planning",
+    "Published: “Ethiopian Inheritance Tax Guide” (2024)"
+  ],
+  "clientResults": [
+    { "title": "High-Net-Worth Succession", "outcome": "$28M estate transferred tax-free via irrevocable trust" },
+    { "title": "Complex Divorce", "outcome": "Secured primary custody + $1.2M equitable distribution" }
+  ],
+  "testimonials": [
+    { "quote": "Dr. Yonas turned a painful divorce into a fair and peaceful resolution. His tax knowledge saved us hundreds of thousands.", "author": "Selamawit T.", "role": "Business Owner" },
+    { "quote": "The estate plan he built for our family foundation is bullet-proof.", "author": "Abebe K.", "role": "Philanthropist" }
+  ],
+  "education": [
+    { "degree": "LLM Taxation", "institution": "Addis Ababa University", "year": "2011" },
+    { "degree": "LLB", "institution": "Addis Ababa University", "year": "2007" }
+  ],
+  "barAdmissions": ["Federal Democratic Republic of Ethiopia (2008)", "Addis Ababa Bar Association"],
+  "publications": [
+    "Ethiopian Inheritance Tax Guide (2024)",
+    "Speaker: Annual Family Law Symposium (2023–2025)"
+  ],
+  "community": ["Board Member – Addis Ababa Legal Aid", "Pro Bono Estate Clinics – 120 families served"],
+  "seoTitle": "Dr. Yonas Mekonnen | Top Estate & Family Lawyer in Addis Ababa",
+  "seoDescription": "Senior Partner with 15+ years protecting family wealth through wills, trusts, and tax-efficient divorce settlements in Ethiopia."
+},
+{
+  "_type": "teamMember",
+  "name": "Azeb Tesfaye",
+  "slug": { "_type": "slug", "current": "azeb-tesfaye" },
+  "position": "Partner – Corporate & Commercial Law",
+  "photo": {
+    "_type": "image",
+    "asset": null,
+    "alt": "Azeb Tesfaye, Corporate Law Partner"
+  },
+  "heroStatement": "I structure deals that let Ethiopian businesses grow, merge, and go global—without legal headaches.",
+  "personalStory": "After clerking for the Federal Supreme Court, I spent a decade at a Big-4 law firm advising multinationals. I joined our firm to bring that same firepower to local startups and SMEs. When I’m not drafting contracts, I coach women entrepreneurs through the Ethiopian Chamber of Commerce.",
+  "practiceAreas": [
+    { "area": "Mergers & Acquisitions", "result": "Closed 22 transactions worth $180M" },
+    { "area": "Corporate Governance", "result": "Designed boards for 35 listed companies" },
+    { "area": "Commercial Contracts", "result": "Negotiated 500+ agreements" },
+    { "area": "FDI & Regulatory", "result": "Secured licenses for 12 foreign investors" }
+  ],
+  "achievements": [
+    "Chambers Global – Corporate/M&A (Band 2)",
+    "IFLR1000 – Leading Lawyer (2024)",
+    "Guest Lecturer – AAU Faculty of Law"
+  ],
+  "clientResults": [
+    { "title": "Cross-Border Merger", "outcome": "$95M telecom merger approved in 4 jurisdictions" },
+    { "title": "Series A Funding", "outcome": "Structured $12M round for fintech startup" }
+  ],
+  "testimonials": [
+    { "quote": "Azeb’s contract templates saved us 40% in legal costs.", "author": "Dawit G.", "role": "CEO, TechCo" },
+    { "quote": "She turned a regulatory nightmare into a smooth market entry.", "author": "Liya M.", "role": "CFO, AgriCorp" }
+  ],
+  "education": [
+    { "degree": "LLM International Business Law", "institution": "University of London", "year": "2013" },
+    { "degree": "LLB", "institution": "Addis Ababa University", "year": "2009" }
+  ],
+  "barAdmissions": ["Ethiopia (2010)", "New York (limited – foreign legal consultant)"],
+  "publications": [
+    "Doing Business in Ethiopia – Legal Guide (2025)",
+    "Speaker: Africa M&A Summit (2024)"
+  ],
+  "community": ["Mentor – Women in Business Ethiopia", "Pro Bono for 40+ startups"],
+  "seoTitle": "Azeb Tesfaye | Leading Corporate Lawyer in Addis Ababa",
+  "seoDescription": "Partner with 12+ years closing M&A, FDI, and commercial deals for Ethiopian and international clients."
+},
+  {
+  "_type": "teamMember",
+  "name": "Dawit Kebede",
+  "slug": { "_type": "slug", "current": "dawit-kebede" },
+  "position": "Associate – Litigation & Arbitration",
+  "photo": {
+    "_type": "image",
+    "asset": null,
+    "alt": "Dawit Kebede, Litigation Associate"
+  },
+  "heroStatement": "I fight for justice in courtrooms and arbitration halls—so your business never loses a beat.",
+  "personalStory": "I started my career defending indigent clients pro bono, which taught me that preparation wins cases. Today I bring that same rigor to commercial disputes, construction claims, and IP battles. On weekends, I coach the AAU Moot Court team.",
+  "practiceAreas": [
+    { "area": "Commercial Litigation", "result": "Won 18 of 20 trials" },
+    { "area": "Construction Arbitration", "result": "$14M claims recovered" },
+    { "area": "IP Disputes", "result": "Protected 30 trademarks" },
+    { "area": "Employment Law", "result": "95% settlement rate" }
+  ],
+  "achievements": [
+    "Ethiopian Young Lawyer of the Year (2024)",
+    "CIArb Accredited Mediator",
+    "Published: “Arbitration in Ethiopia” (2023)"
+  ],
+  "clientResults": [
+    { "title": "Construction Delay Claim", "outcome": "$7.8M arbitral award enforced" },
+    { "title": "Trademark Infringement", "outcome": "Permanent injunction + $450k damages" }
+  ],
+  "testimonials": [
+    { "quote": "Dawit’s cross-examination turned the case in our favor.", "author": "Tiru W.", "role": "Project Manager" },
+    { "quote": "Fast, sharp, and always one step ahead.", "author": "Eyerus A.", "role": "HR Director" }
+  ],
+  "education": [
+    { "degree": "LLM Dispute Resolution", "institution": "University of Pretoria", "year": "2021" },
+    { "degree": "LLB", "institution": "Addis Ababa University", "year": "2018" }
+  ],
+  "barAdmissions": ["Ethiopia (2019)"],
+  "publications": [
+    "Arbitration in Ethiopia – Case Law Review (2023)",
+    "Speaker: East Africa Arbitration Conference"
+  ],
+  "community": ["Pro Bono Litigation Clinic – 60 cases", "Moot Court Coach – AAU"],
+  "seoTitle": "Dawit Kebede | Litigation & Arbitration Lawyer in Addis Ababa",
+  "seoDescription": "Rising-star litigator with a 90% win rate in commercial and construction disputes across Ethiopia."
+},
+  {
+  "_type": "teamMember",
+  "name": "Selamawit Tadesse",
+  "slug": { "_type": "slug", "current": "selamawit-tadesse" },
+  "position": "Associate – Immigration & Citizenship Law",
+  "photo": {
+    "_type": "image",
+    "asset": null,
+    "alt": "Selamawit Tadesse, Immigration Lawyer"
+  },
+  "heroStatement": "I make global mobility simple—whether you’re relocating talent, investing abroad, or reuniting families.",
+  "personalStory": "As a first-generation immigrant’s daughter, I know the paperwork maze firsthand. I specialize in work permits, investor visas, and citizenship by investment so clients can focus on opportunity, not bureaucracy. I also volunteer with the Ethiopian Diaspora Legal Network.",
+  "practiceAreas": [
+    { "area": "Work Permits & Visas", "result": "Approved 320+ applications" },
+    { "area": "Citizenship by Investment", "result": "12 families naturalized" },
+    { "area": "Family Reunification", "result": "Reunited 85 families" },
+    { "area": "Asylum & Refugee Law", "result": "90% success rate" }
+  ],
+  "achievements": [
+    "Global Mobility Specialist – IBA (2025)",
+    "Published: “Ethiopia’s New Investment Visa” (2024)",
+    "Speaker: Africa Immigration Summit"
+  ],
+  "clientResults": [
+    { "title": "Tech Talent Relocation", "outcome": "50 engineers relocated in 90 days" },
+    { "title": "Golden Visa Portfolio", "outcome": "$5M real-estate investment visa approved" }
+  ],
+  "testimonials": [
+    { "quote": "Selamawit got my entire team visas in record time.", "author": "Michael R.", "role": "CTO, Fintech" },
+    { "quote": "She made my parents’ reunion possible after 8 years apart.", "author": "Hanna B.", "role": "Client" }
+  ],
+  "education": [
+    { "degree": "LLM Migration Law", "institution": "University of Oxford", "year": "2022" },
+    { "degree": "LLB", "institution": "Addis Ababa University", "year": "2019" }
+  ],
+  "barAdmissions": ["Ethiopia (2020)"],
+  "publications": [
+    "Ethiopia’s New Investment Visa – A Practitioner’s Guide (2024)",
+    "Speaker: African Diaspora Legal Forum"
+  ],
+  "community": ["Ethiopian Diaspora Legal Network – 200+ consultations", "Free Visa Workshops"],
+  "seoTitle": "Selamawit Tadesse | Immigration & Citizenship Lawyer in Addis Ababa",
+  "seoDescription": "Expert in work permits, investor visas, and family reunification for global professionals and families in Ethiopia."
+}
+]

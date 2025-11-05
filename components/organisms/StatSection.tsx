@@ -14,6 +14,8 @@ import {
 
 // Direct HeroUI icon imports (ensures they exist)
 import { BriefcaseIcon, UsersIcon, CalendarIcon, TrophyIcon } from "@heroicons/react/24/outline";
+import MainHeadline from "../atoms/MainHeadline/MainHeadline";
+import AccentHeading from "../atoms/AccentHeading/AccentHeading";
 
 interface Stat {
   label: string;
@@ -75,7 +77,7 @@ const AnimatedCounter = ({
 
 export const StatSection = () => {
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800 py-16 lg:py-24">
+    <section className="bg-background-light dark:bg-background-dark py-16 lg:py-24">
       <div className="container mx-auto px-4">
         {/* Row 1: 2 Columns */}
         <motion.div
@@ -86,12 +88,21 @@ export const StatSection = () => {
           className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start"
         >
           {/* Col 1: Headline */}
-          <motion.h2
-            variants={fadeVariants}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight"
-          >
+         
+             <MainHeadline 
+              align="left"
+              gradientStyle="partial"
+              size="lg"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight 
+              mb-2"
+              animate="slide-up"
+            >
             WE TURN IDEAS INTO VISUAL MASTERPIECES
-          </motion.h2>
+            </MainHeadline>
+
+        
+
+          
 
           {/* Col 2: Paragraph + CTA */}
           <div className="space-y-6">

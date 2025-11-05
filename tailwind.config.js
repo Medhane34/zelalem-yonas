@@ -53,7 +53,7 @@ const config = {
         },
         background: {
           light: "#ffffff",
-          dark: "#0f172a", // slate-900
+          dark: "#080404", // slate-900
         },
 
         /* Gradient helpers (optional) */

@@ -17,6 +17,8 @@ import {
   ChartBarIcon,
 } from "@heroicons/react/24/outline";
 import { staggerContainer, fadeVariants, slideUp } from "@/lib/motion";
+import AccentHeading from "../atoms/AccentHeading";
+import MainHeadline from "../atoms/MainHeadline";
 
 const allServices = [
   { title: "Criminal Tax Law", description: "Our team of experienced tax attorneys and experts is here to provide you with valuable.", icon: ScaleIcon, slug: "criminal-tax-law" },
@@ -55,14 +57,21 @@ export const ServiceSection = () => {
             viewport={{ once: true }}
             className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wider"
           >
-            Practice Areas
+        <AccentHeading size="sm" gradient="linear-gradient(90deg, #4361EE 0%, #3A0CA3 100%)">
+          Practice Areas
+        </AccentHeading>
+            
           </motion.p>
-          <motion.h2
-            variants={fadeVariants}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light dark:text-text-dark mt-2"
-          >
-            Tackling Your Toughest Tax Solution
-          </motion.h2>
+          <MainHeadline 
+              
+              gradientStyle="partial"
+              size="lg"
+              className=" text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light dark:text-text-dark mt-2 mb-2"
+
+            >
+              Tackling Your Toughest Tax Solution
+            </MainHeadline>
+          
         </div>
 
         {/* Grid with Load More */}

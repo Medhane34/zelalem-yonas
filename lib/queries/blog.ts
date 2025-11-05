@@ -35,9 +35,9 @@ slug?: { current: string };  // ← FIXED: Object, not strings  excerpt: string;
     slug?: { current: string };
   }>;
 }
-export const getPosts = async (limit = 9) => {
+export const getPosts = async (limit = 3, skip = 0): Promise<Post[]> => {
   return client.fetch(
-    groq`*[_type == "post" && publishedAt < now()] | order(publishedAt desc) [0...$limit] {
+    groq`*[_type == "post" && publishedAt < now()] | order(publishedAt desc) [$skip...$skip + $limit] {
       _id,
       title,
       slug { current },
@@ -55,7 +55,7 @@ export const getPosts = async (limit = 9) => {
       },
       "categories": categories[]-> { title, slug { current } }
     }`,
-    { limit }
+    { limit, skip }
   );
 };
 
@@ -119,9 +119,9 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
 };
 
 // lib/queries/blog.ts
-export const getPostsByCategory = async (categorySlug: string): Promise<Post[]> => {
+export const getPostsByCategory = async (categorySlug: string, limit = 3, skip = 0): Promise<Post[]> => {
   try {
-    console.log('Fetching posts for slug:', categorySlug);
+    console.log('Fetching posts for slug:', categorySlug, 'skip:', skip);
 
     const result = await client.fetch(
       groq`*[
@@ -129,7 +129,7 @@ export const getPostsByCategory = async (categorySlug: string): Promise<Post[]> 
         defined(categories) && 
         $categorySlug in categories[]->slug.current &&
         publishedAt < now()
-      ] | order(publishedAt desc) {
+      ] | order(publishedAt desc) [$skip...$skip + $limit] {
         _id,
         title,
         slug { current },
@@ -147,10 +147,10 @@ export const getPostsByCategory = async (categorySlug: string): Promise<Post[]> 
         },
         "categories": categories[]-> { title, slug { current } }
       }`,
-      { categorySlug }
+      { categorySlug, limit, skip }
     );
 
-    console.log('Posts found:', result);
+    console.log('Posts found:', result.length);
     return result;
   } catch (error) {
     console.error('getPostsByCategory error:', error);
@@ -175,6 +175,24 @@ export const getCategories = async (): Promise<Category[]> => {
     console.error('getCategories error:', error);
     return [];
   }
+};
+
+export const getLatestPosts = async (limit = 3) => {
+  return client.fetch(
+    groq`*[_type == "post" && publishedAt < now()] | order(publishedAt desc) [0...$limit] {
+      _id,
+      title,
+      slug { current },
+      excerpt,
+      publishedAt,
+      mainImage {
+        asset-> { url },
+        alt
+      },
+      "categories": categories[]-> { title }
+    }`,
+    { limit }
+  );
 };
 
 export const getAuthors = async () => {
